@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mon Dictionnaire</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        #mot {
+            padding: 5px;
+        }
+
+        button {
+            padding: 5px 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #definition {
+            margin-top: 20px;
+            font-style: italic;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mon Dictionnaire</h1>
+
+    <label for="mot">Entrez un mot :</label>
+    <input type="text" id="mot">
+    <button onclick="chercherDefinition()">Rechercher</button>
+
+    <p id="definition"></p>
+
+    <script>
+        var dictionnaire = {
+            "chat": "Un animal domestique qui miaule.",
+            "chien": "Un meilleur ami de l'homme.",
+            "oiseau": "Un animal à plumes qui vole.",
+            // Ajoutez d'autres mots et définitions ici.
+        };
+
+        function chercherDefinition() {
+            var motRecherche = document.getElementById("mot").value.toLowerCase();
+            var resultat = document.getElementById("definition");
+
+            if (dictionnaire.hasOwnProperty(motRecherche)) {
+                resultat.innerHTML = "<strong>" + motRecherche + " :</strong> " + dictionnaire[motRecherche];
+            } else {
+                resultat.innerHTML = "Désolé, la définition de ce mot n'a pas été trouvée.";
+            }
+        }
+    </script>
+</body>
+</html>
